@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
 
         features = "src/test/resources/features",
         glue = "stepdefinitions",
-         tags = "@TC_001_Updating_Presenting_Issue_Subjective",
+         tags = "@US_001",
         dryRun = false
 )
 
