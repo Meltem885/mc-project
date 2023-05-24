@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BasePage{
+public class HomePage_IF extends BasePage{
 
 
     @FindBy(xpath = "//a[text()=' Solutions ']")
@@ -48,7 +48,7 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "(//img[@decoding='async'])[3]")
     public WebElement icon_SignInWithLinkedin;
 
-   // @FindBy(xpath = "(//img[@decoding='async'])[4]")//çalışmıyor
+   // @FindBy(xpath = "(//img[@decoding='async'])[4]")// link çalışmıyor
    // public WebElement icon_SignInWithFacebook;
 
 
