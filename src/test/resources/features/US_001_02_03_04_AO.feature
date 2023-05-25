@@ -25,6 +25,8 @@ Feature: US_001 As a user I should be able to access the home page.
 
 
 
+
+
   Scenario: US_003_TC002 At the bottom of the page, Go ahead, give it a try! and Try it for Free should be visible and clickable.
                          After clicking Therapist Register section should be visible.
                          Related page url must be: https://test.hypnotes.net/register
