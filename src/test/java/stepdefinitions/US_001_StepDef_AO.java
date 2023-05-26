@@ -100,12 +100,13 @@ public class US_001_StepDef_AO {
         Assert.assertTrue(homePage_ao.text_goAhead.isDisplayed());
         System.out.println("homePage_ao = " + homePage_ao.text_goAhead.getText());
     }
-
-    @Then("Try it for Free button should be visible and clickable.")
-    public void tryItForFreeButtonShouldBeVisibleAndClickable() {
+    @Then("AO verifies Try it for Free button is visible and clickable.")
+    public void aoVerifiesTryItForFreeButtonIsVisibleAndClickable() {
         Assert.assertTrue(homePage_ao.button_tryItForFreeBottom.isDisplayed());
         Assert.assertTrue(homePage_ao.button_tryItForFreeBottom.isEnabled());
+
     }
+
 
     @And("AO clicks the Try it for Free button")
     public void aoClicksTheTryItForFreeButton() {
@@ -115,8 +116,8 @@ public class US_001_StepDef_AO {
         BrowserUtilities.waitFor(2);
     }
 
-    @Then("Therapist Register section should be visible.")
-    public void therapistRegisterSectionShouldBeVisible() {
+    @Then("AO verifies Therapist Register section is visible.")
+    public void aoVerifiesTherapistRegisterSectionIsVisible() {
         Assert.assertTrue(homePage_ao.text_registerAsaTerapist.isDisplayed());
     }
 
@@ -127,5 +128,56 @@ public class US_001_StepDef_AO {
 
         Assert.assertEquals(expectedUrl, actualUrl);
 
+    }
+
+
+    @Then("AO verifies Facebook, LinkedIn, Twitter, Instagram icons is visible and clickable.")
+    public void aoVerifiesFacebookLinkedInTwitterInstagramIconsIsVisibleAndClickable() {
+        // JSUtils.scrollIntoViewJS(homePage_ao.button_socialIcons.get(1));
+        BrowserUtilities.waitFor(2);
+        JSUtils.scrollDownByJS();
+        BrowserUtilities.waitFor(2);
+
+        for (int i = 0; i < homePage_ao.button_socialIcons.size(); i++){
+
+            Assert.assertTrue(homePage_ao.button_socialIcons.get(i).isDisplayed());
+            Assert.assertTrue(homePage_ao.button_socialIcons.get(i).isEnabled());
+
+        }
+        }
+
+    @Then("AO clicks on Facebook and verifies the company-related pages is visible")
+    public void aoClicksOnFacebookAndVerifiesTheCompanyRelatedPagesIsVisible() {
+
+        socialIconsAssertion(0,"facebook");
+
+    }
+
+    @Then("AO clicks on LinkedIn and verifies the company-related pages is visible")
+    public void aoClicksOnLinkedInAndVerifiesTheCompanyRelatedPagesIsVisible() {
+        socialIconsAssertion(3, "linkedin");
+    }
+
+    @Then("AO clicks on Twitter and verifies the company-related pages is visible")
+    public void aoClicksOnTwitterAndVerifiesTheCompanyRelatedPagesIsVisible() {
+        socialIconsAssertion(1,"twitter");
+    }
+
+    @Then("AO clicks on Instagram and verifies the company-related pages is visible")
+    public void aoClicksOnInstagramAndVerifiesTheCompanyRelatedPagesIsVisible() {
+        socialIconsAssertion(2, "instagram");
+    }
+
+    public void socialIconsAssertion(int socialIconIndex, String socialIconName) {
+
+        homePage_ao.button_socialIcons.get(socialIconIndex).click();
+        BrowserUtilities.waitFor(2);
+        BrowserUtilities.switchToWindowWithIndex(1);
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(socialIconName));
+        System.out.println(Driver.getDriver().getCurrentUrl());
+        System.out.println(Driver.getDriver().getTitle());
+
+        BrowserUtilities.switchToWindowWithIndex(0);
+        BrowserUtilities.waitFor(2);
     }
 }

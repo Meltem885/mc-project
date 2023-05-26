@@ -16,7 +16,6 @@ Feature: US_001 As a user I should be able to access the home page.
     // Given AO goes to home page
     Then AO verifies headings are visible in the home page
     Then AO verifies headings are clickable in the home page
-#helllooo
 
   Scenario: US_003_TC001 Try it for Free, Sign In headers should be visible and clickable.
 
@@ -31,14 +30,18 @@ Feature: US_001 As a user I should be able to access the home page.
     // Given AO goes to home page
     And AO goes to at the button of home page
     Then AO verifies Go ahead, give it a try! text is visible
-    Then Try it for Free button should be visible and clickable.
+    Then AO verifies Try it for Free button is visible and clickable.
     And AO clicks the Try it for Free button
-    Then Therapist Register section should be visible.
+    Then AO verifies Therapist Register section is visible.
     Then AO verifies Related page url is "https://test.hypnotes.net/register"
 
+Scenario: US_004_TC001 As a user, I should be able to see social media icons and control some functions on the homepage.
 
-
-
+  Then AO verifies Facebook, LinkedIn, Twitter, Instagram icons is visible and clickable.
+  Then AO clicks on Facebook and verifies the company-related pages is visible
+  Then AO clicks on LinkedIn and verifies the company-related pages is visible
+  Then AO clicks on Twitter and verifies the company-related pages is visible
+  Then AO clicks on Instagram and verifies the company-related pages is visible
 
 
 

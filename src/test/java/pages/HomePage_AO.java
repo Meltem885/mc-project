@@ -25,6 +25,9 @@ public class HomePage_AO extends BasePage {
     @FindBy (xpath = "//h3[text()='Register As a Therapist']")
     public WebElement text_registerAsaTerapist;
 
+    @FindBy (xpath = "//div[@class='BaseFooter_socialLinks__b2Eyv']/a")
+    public List<WebElement> button_socialIcons;
+
 
 
 
