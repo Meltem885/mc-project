@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
@@ -7,6 +8,7 @@ import pages.HomePage_AO;
 import utilities.BrowserUtilities;
 import utilities.ConfigurationReader;
 import utilities.Driver;
+import utilities.JSUtils;
 
 public class US_001_StepDef_AO {
 
@@ -16,8 +18,8 @@ public class US_001_StepDef_AO {
     @Given("AO goes to home page")
     public void AOGoesToHomePage() {
 
-      // Driver.getDriver().get("https://test.hypnotes.net/");
-       Driver.getDriver().get(ConfigurationReader.getProperty("hypnotesUrl"));
+        // Driver.getDriver().get("https://test.hypnotes.net/");
+        Driver.getDriver().get(ConfigurationReader.getProperty("hypnotesUrl"));
 
     }
 
@@ -26,7 +28,7 @@ public class US_001_StepDef_AO {
 
         String expectedUrl = "https://test.hypnotes.net/";
         String actualUrl = Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(expectedUrl,actualUrl);
+        Assert.assertEquals(expectedUrl, actualUrl);
 
         System.out.println("expectedUrl = " + expectedUrl);
         System.out.println("actualUrl = " + actualUrl);
@@ -35,6 +37,7 @@ public class US_001_StepDef_AO {
         System.out.println("actualTitle = " + actualTitle);
 
     }
+
     @Then("AO verifies headings are visible in the home page")
     public void aoVerifiesHeadingsAreVisibleInTheHomePage() {
         BrowserUtilities.waitFor(3);
@@ -45,6 +48,7 @@ public class US_001_StepDef_AO {
             Assert.assertTrue(homePage_ao.allHeadings.get(i).isDisplayed());
         }
     }
+
     @Then("AO verifies headings are clickable in the home page")
     public void aoVerifiesHeadingsAreClickableInTheHomePage() {
         for (int i = 0; i < homePage_ao.allHeadings.size(); i++) {
@@ -52,6 +56,7 @@ public class US_001_StepDef_AO {
             Assert.assertTrue(homePage_ao.allHeadings.get(i).isEnabled());
         }
     }
+
     @Then("AO verifies try it for Free is visible and clickable")
     public void aoVerifiesTryItForFreeIsVisibleAndClickable() {
 
@@ -59,9 +64,120 @@ public class US_001_StepDef_AO {
         Assert.assertTrue(homePage_ao.button_tryItForFree.isDisplayed());
         Assert.assertTrue(homePage_ao.button_tryItForFree.isEnabled());
     }
+
     @Then("AO verifies Sign In headers is visible and clickable")
     public void aoVerifiesSignInHeadersIsVisibleAndClickable() {
 
+        Assert.assertTrue(homePage_ao.link_signIn.isDisplayed());
+        Assert.assertTrue(homePage_ao.link_signIn.isEnabled());
 
+        homePage_ao.link_signIn.click();
+        BrowserUtilities.waitFor(2);
+
+        String expectedUrl = "https://test.hypnotes.net/login";
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedUrl, actualUrl);
+
+        System.out.println("expectedUrl = " + expectedUrl);
+        System.out.println("actualUrl = " + actualUrl);
+
+        String expectedTitle = "Login";
+        String actualTitle = Driver.getDriver().getTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
+        System.out.println("expectedTitle = " + expectedTitle);
+        System.out.println("actualTitle = " + actualTitle);
+
+    }
+
+    @And("AO goes to at the button of home page")
+    public void aoGoesToAtTheButtonOfHomePage() {
+        //JSUtils.scrollDownByJS();
+        BrowserUtilities.waitFor(2);
+    }
+
+    @Then("AO verifies Go ahead, give it a try! text is visible")
+    public void aoVerifiesGoAheadGiveItATryTextIsVisible() {
+        Assert.assertTrue(homePage_ao.text_goAhead.isDisplayed());
+        System.out.println("homePage_ao = " + homePage_ao.text_goAhead.getText());
+    }
+    @Then("AO verifies Try it for Free button is visible and clickable.")
+    public void aoVerifiesTryItForFreeButtonIsVisibleAndClickable() {
+        Assert.assertTrue(homePage_ao.button_tryItForFreeBottom.isDisplayed());
+        Assert.assertTrue(homePage_ao.button_tryItForFreeBottom.isEnabled());
+
+    }
+
+
+    @And("AO clicks the Try it for Free button")
+    public void aoClicksTheTryItForFreeButton() {
+        JSUtils.scrollIntoViewJS(homePage_ao.button_tryItForFreeBottom);
+        BrowserUtilities.waitFor(2);
+        BrowserUtilities.clickWithJS(homePage_ao.button_tryItForFreeBottom);
+        BrowserUtilities.waitFor(2);
+    }
+
+    @Then("AO verifies Therapist Register section is visible.")
+    public void aoVerifiesTherapistRegisterSectionIsVisible() {
+        Assert.assertTrue(homePage_ao.text_registerAsaTerapist.isDisplayed());
+    }
+
+    @Then("AO verifies Related page url is {string}")
+    public void aoVerifiesRelatedPageUrlIs(String arg0) {
+        String expectedUrl = "https://test.hypnotes.net/register";
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+
+        Assert.assertEquals(expectedUrl, actualUrl);
+
+    }
+
+
+    @Then("AO verifies Facebook, LinkedIn, Twitter, Instagram icons is visible and clickable.")
+    public void aoVerifiesFacebookLinkedInTwitterInstagramIconsIsVisibleAndClickable() {
+        // JSUtils.scrollIntoViewJS(homePage_ao.button_socialIcons.get(1));
+        BrowserUtilities.waitFor(2);
+        JSUtils.scrollDownByJS();
+        BrowserUtilities.waitFor(2);
+
+        for (int i = 0; i < homePage_ao.button_socialIcons.size(); i++){
+
+            Assert.assertTrue(homePage_ao.button_socialIcons.get(i).isDisplayed());
+            Assert.assertTrue(homePage_ao.button_socialIcons.get(i).isEnabled());
+
+        }
+        }
+
+    @Then("AO clicks on Facebook and verifies the company-related pages is visible")
+    public void aoClicksOnFacebookAndVerifiesTheCompanyRelatedPagesIsVisible() {
+
+        socialIconsAssertion(0,"facebook");
+
+    }
+
+    @Then("AO clicks on LinkedIn and verifies the company-related pages is visible")
+    public void aoClicksOnLinkedInAndVerifiesTheCompanyRelatedPagesIsVisible() {
+        socialIconsAssertion(3, "linkedin");
+    }
+
+    @Then("AO clicks on Twitter and verifies the company-related pages is visible")
+    public void aoClicksOnTwitterAndVerifiesTheCompanyRelatedPagesIsVisible() {
+        socialIconsAssertion(1,"twitter");
+    }
+
+    @Then("AO clicks on Instagram and verifies the company-related pages is visible")
+    public void aoClicksOnInstagramAndVerifiesTheCompanyRelatedPagesIsVisible() {
+        socialIconsAssertion(2, "instagram");
+    }
+
+    public void socialIconsAssertion(int socialIconIndex, String socialIconName) {
+
+        homePage_ao.button_socialIcons.get(socialIconIndex).click();
+        BrowserUtilities.waitFor(2);
+        BrowserUtilities.switchToWindowWithIndex(1);
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(socialIconName));
+        System.out.println(Driver.getDriver().getCurrentUrl());
+        System.out.println(Driver.getDriver().getTitle());
+
+        BrowserUtilities.switchToWindowWithIndex(0);
+        BrowserUtilities.waitFor(2);
     }
 }
