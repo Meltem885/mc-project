@@ -100,6 +100,7 @@ public class US_001_StepDef_AO {
         Assert.assertTrue(homePage_ao.text_goAhead.isDisplayed());
         System.out.println("homePage_ao = " + homePage_ao.text_goAhead.getText());
     }
+
     @Then("AO verifies Try it for Free button is visible and clickable.")
     public void aoVerifiesTryItForFreeButtonIsVisibleAndClickable() {
         Assert.assertTrue(homePage_ao.button_tryItForFreeBottom.isDisplayed());
@@ -138,19 +139,17 @@ public class US_001_StepDef_AO {
         JSUtils.scrollDownByJS();
         BrowserUtilities.waitFor(2);
 
-        for (int i = 0; i < homePage_ao.button_socialIcons.size(); i++){
+        for (int i = 0; i < homePage_ao.button_socialIcons.size(); i++) {
 
             Assert.assertTrue(homePage_ao.button_socialIcons.get(i).isDisplayed());
             Assert.assertTrue(homePage_ao.button_socialIcons.get(i).isEnabled());
 
         }
-        }
+    }
 
     @Then("AO clicks on Facebook and verifies the company-related pages is visible")
     public void aoClicksOnFacebookAndVerifiesTheCompanyRelatedPagesIsVisible() {
-
-        socialIconsAssertion(0,"facebook");
-
+        socialIconsAssertion(0, "facebook");
     }
 
     @Then("AO clicks on LinkedIn and verifies the company-related pages is visible")
@@ -160,14 +159,13 @@ public class US_001_StepDef_AO {
 
     @Then("AO clicks on Twitter and verifies the company-related pages is visible")
     public void aoClicksOnTwitterAndVerifiesTheCompanyRelatedPagesIsVisible() {
-        socialIconsAssertion(1,"twitter");
+        socialIconsAssertion(1, "twitter");
     }
 
     @Then("AO clicks on Instagram and verifies the company-related pages is visible")
     public void aoClicksOnInstagramAndVerifiesTheCompanyRelatedPagesIsVisible() {
         socialIconsAssertion(2, "instagram");
     }
-
     public void socialIconsAssertion(int socialIconIndex, String socialIconName) {
 
         homePage_ao.button_socialIcons.get(socialIconIndex).click();
@@ -180,4 +178,110 @@ public class US_001_StepDef_AO {
         BrowserUtilities.switchToWindowWithIndex(0);
         BrowserUtilities.waitFor(2);
     }
+
+
+    @Then("AO verifies {string} section is visible")
+    public void aoVerifiesAllInOnePlaceForPracticeManagementSectionIsVisible(String expectedText) {
+BrowserUtilities.waitFor(3);
+        // String expectedText = "All in One Place for Practice Management";
+        String actualText = homePage_ao.text_allInOnePlace.getText();
+        System.out.println("actualText = " + actualText);
+
+        Assert.assertEquals(expectedText,  actualText);
+
+    }
+
+    @Then("AO verifies {string} section is visible.")
+    public void aoVerifiesWhyYouLoveHypnotesSectionIsVisible(String expectedText) {
+BrowserUtilities.waitFor(2);
+        // String expectedText = "Why You Love Hypnotes?";
+        String actualText = homePage_ao.text_whyYouLoveHypnotese.getText();
+        System.out.println("actualText = " + actualText);
+
+        Assert.assertEquals(expectedText,  actualText);
+
+    }
+
+    @Then("AO verifies About Hypnotes header is visible and clickable")
+    public void aoVerifiesAboutHypnotesHeaderIsVisibleAndClickable() {
+        BrowserUtilities.waitFor(5);
+        String expectedText = "About Hypnotes";
+        String actualText = homePage_ao.text_aboutHypnotesHeader.getText();
+
+        Assert.assertEquals(expectedText, actualText);
+        Assert.assertTrue(homePage_ao.text_aboutHypnotesHeader.isDisplayed());
+        Assert.assertTrue(homePage_ao.text_aboutHypnotesHeader.isEnabled());
+    }
+
+    @Then("AO clicks on About Hypnotes link and verifies relevant page has url {string}")
+    public void aoClicksOnAboutHypnotesLinkAndVerifiesRelevantPageHasUrl(String arg0) {
+
+        BrowserUtilities.waitFor(3);
+        BrowserUtilities.clickWithJS(homePage_ao.text_aboutHypnotesHeader);
+
+
+        BrowserUtilities.waitFor(3);
+        String expectedUrl = "https://test.hypnotes.net/about-us";
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+
+        Assert.assertEquals(expectedUrl,actualUrl);
+
+    }
+
+    @Then("AO verifies Who is Hypnotes? and other titles are visible")
+    public void aoVerifiesWhoIsHypnotesAndOtherTitlesAreVisible() {
+
+        for (int i = 0; i < homePage_ao.text_allHeadersInAboutUs.size(); i++) {
+
+            Assert.assertTrue(homePage_ao.text_allHeadersInAboutUs.get(i).isDisplayed());
+            System.out.println(homePage_ao.text_allHeadersInAboutUs.get(i).getText());
+
+
+        }
+
+    }
+
+    @Then("AO verifies Under About Hypnotes? section on homepage, Youtube video is clickable and the video should play.")
+    public void aoVerifiesUnderAboutHypnotesSectionOnHomepageYoutubeVideoIsClickableAndTheVideoShouldPlay() {
+        BrowserUtilities.waitFor(3);
+
+        Assert.assertTrue(homePage_ao.button_aboutHypnotesYouTube.isDisplayed());
+        Assert.assertTrue(homePage_ao.button_aboutHypnotesYouTube.isEnabled());
+
+        BrowserUtilities.waitFor(3);
+JSUtils.scrollIntoViewJS(homePage_ao.button_aboutHypnotesYouTube);
+JSUtils.clickElementByJS(homePage_ao.button_aboutHypnotesYouTube);
+       // homePage_ao.button_aboutHypnotesYouTube.click();
+
+
+    }
+
+    @Then("AO verifies More about Hypnotes section is visible")
+    public void aoVerifiesMoreAboutHypnotesSectionIsVisible() {
+
+        Assert.assertTrue(homePage_ao.button_moreAboutHypnote.isDisplayed());
+        Assert.assertTrue(homePage_ao.button_moreAboutHypnote.isEnabled());
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

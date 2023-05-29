@@ -28,6 +28,24 @@ public class HomePage_AO extends BasePage {
     @FindBy (xpath = "//div[@class='BaseFooter_socialLinks__b2Eyv']/a")
     public List<WebElement> button_socialIcons;
 
+    @FindBy (xpath = "//h1[text()='All in One Place for Practice Management']")
+    public WebElement text_allInOnePlace;
+
+    @FindBy (xpath = "//h2[text() ='Why You Love Hypnotes?']")
+    public WebElement text_whyYouLoveHypnotese;
+
+    @FindBy(css = "a.LandingPage_aboutHeader__iKi0w")
+    public WebElement text_aboutHypnotesHeader;
+
+    @FindBy (xpath = "//h2")
+    public List<WebElement> text_allHeadersInAboutUs;
+
+    @FindBy(css = "button[aria-label='Play']")
+    public WebElement button_aboutHypnotesYouTube;
+
+    @FindBy (xpath = "//a[@class='LandingPage_moreInfo__Xksna']")
+    public WebElement button_moreAboutHypnote;
+
 
 
 

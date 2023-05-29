@@ -43,11 +43,29 @@ Scenario: US_004_TC001 As a user, I should be able to see social media icons and
   Then AO clicks on Twitter and verifies the company-related pages is visible
   Then AO clicks on Instagram and verifies the company-related pages is visible
 
+Scenario: US_005_TC001 As a user, I should be able to see the various headers and check some language features on the homepage.
+
+  Then AO verifies 'All in One Place for Practice Management' section is visible
+  Then AO verifies 'Why You Love Hypnotes?' section is visible.
+
+Scenario: US_006_TC001 As a user, I should be able to see various titles and make various controls on the homepage.
+
+  Then AO verifies About Hypnotes header is visible and clickable
+  Then AO clicks on About Hypnotes link and verifies relevant page has url "https://test.hypnotes.net/about-us"
+  Then AO verifies Who is Hypnotes? and other titles are visible
+
+  Scenario: US_007_TC001 As a user, I should be able to see various titles and make various controls on the homepage.
+
+  Then AO verifies Under About Hypnotes? section on homepage, Youtube video is clickable and the video should play.
+  Then AO verifies More about Hypnotes section is visible
 
 
 
 
 
+#  Under About Hypnotes? section on homepage, Youtube video should be clickable and the video should play// More about Hypnotes section should be visible.
+#  More about Hypnotes section should not contain spelling and logic mistakes.
+#  More about Hypnotes should be clickable and the relevant page should be seen. https://test.hypnotes.net/about-us
 
 
 
