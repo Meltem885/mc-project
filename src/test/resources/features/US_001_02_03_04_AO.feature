@@ -56,16 +56,17 @@ Scenario: US_006_TC001 As a user, I should be able to see various titles and mak
 
   Scenario: US_007_TC001 As a user, I should be able to see various titles and make various controls on the homepage.
 
-  Then AO verifies Under About Hypnotes? section on homepage, Youtube video is clickable and the video should play.
+  Then AO verifies Youtube video under About Hypnotes section on homepage is clickable
+  Then AO verifies Youtube video starts to play.
   Then AO verifies More about Hypnotes section is visible
 
 
 
 
 
-#  Under About Hypnotes? section on homepage, Youtube video should be clickable and the video should play// More about Hypnotes section should be visible.
-#  More about Hypnotes section should not contain spelling and logic mistakes.
-#  More about Hypnotes should be clickable and the relevant page should be seen. https://test.hypnotes.net/about-us
+
+
+
 
 
 

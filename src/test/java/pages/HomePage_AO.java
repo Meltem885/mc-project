@@ -43,6 +43,12 @@ public class HomePage_AO extends BasePage {
     @FindBy(css = "button[aria-label='Play']")
     public WebElement button_aboutHypnotesYouTube;
 
+    @FindBy(css = ".ytp-title-link.yt-uix-sessionlink")
+    public WebElement text_hypnotesPrMnSf;
+
+    @FindBy(xpath= "//iframe[@loading='lazy']")
+    public WebElement iframe;
+
     @FindBy (xpath = "//a[@class='LandingPage_moreInfo__Xksna']")
     public WebElement button_moreAboutHypnote;
 

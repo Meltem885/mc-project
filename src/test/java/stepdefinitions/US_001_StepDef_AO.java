@@ -240,28 +240,49 @@ BrowserUtilities.waitFor(2);
         }
 
     }
+    @Then("AO verifies Youtube video under About Hypnotes section on homepage is clickable")
+    public void aoVerifiesYoutubeVideoUnderAboutHypnotesSectionOnHomepageIsClickable() {
 
-    @Then("AO verifies Under About Hypnotes? section on homepage, Youtube video is clickable and the video should play.")
-    public void aoVerifiesUnderAboutHypnotesSectionOnHomepageYoutubeVideoIsClickableAndTheVideoShouldPlay() {
-        BrowserUtilities.waitFor(3);
+        BrowserUtilities.scrollToElement(homePage_ao.text_aboutHypnotesHeader);
+                BrowserUtilities.waitFor(7);
+                Driver.getDriver().switchTo().frame(homePage_ao.iframe);
+                BrowserUtilities.waitFor(5);
+        System.out.println("homePage_ao.text_hypnotesPrMnSf = " + homePage_ao.text_hypnotesPrMnSf.getText());
+                // BrowserUtilities.scrollToElement(homePage_ao.button_aboutHypnotesYouTube);
 
         Assert.assertTrue(homePage_ao.button_aboutHypnotesYouTube.isDisplayed());
         Assert.assertTrue(homePage_ao.button_aboutHypnotesYouTube.isEnabled());
 
-        BrowserUtilities.waitFor(3);
-JSUtils.scrollIntoViewJS(homePage_ao.button_aboutHypnotesYouTube);
-JSUtils.clickElementByJS(homePage_ao.button_aboutHypnotesYouTube);
-       // homePage_ao.button_aboutHypnotesYouTube.click();
-
 
     }
+
+    @Then("AO verifies Youtube video starts to play.")
+    public void aoVerifiesYoutubeVideoStartsToPlay() {
+        JSUtils.clickElementByJS(homePage_ao.button_aboutHypnotesYouTube);
+        JSUtils.clickElementByJS(homePage_ao.button_aboutHypnotesYouTube);
+    }
+//    @Then("AO verifies Under About Hypnotes? section on homepage, Youtube video is clickable and the video should play.")
+//    public void aoVerifiesUnderAboutHypnotesSectionOnHomepageYoutubeVideoIsClickableAndTheVideoShouldPlay() {
+
+//
+//        BrowserUtilities.waitFor(3);
+//JSUtils.scrollIntoViewJS(homePage_ao.button_aboutHypnotesYouTube);
+//JSUtils.clickElementByJS(homePage_ao.button_aboutHypnotesYouTube);
+//       // homePage_ao.button_aboutHypnotesYouTube.click();
+//
+//
+//    }
 
     @Then("AO verifies More about Hypnotes section is visible")
     public void aoVerifiesMoreAboutHypnotesSectionIsVisible() {
 
+        Driver.getDriver().switchTo().defaultContent();
+        BrowserUtilities.waitFor(3);
         Assert.assertTrue(homePage_ao.button_moreAboutHypnote.isDisplayed());
         Assert.assertTrue(homePage_ao.button_moreAboutHypnote.isEnabled());
     }
+
+
 }
 
 
