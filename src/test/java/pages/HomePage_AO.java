@@ -55,6 +55,27 @@ public class HomePage_AO extends BasePage {
     @FindBy (xpath = "//a[@class='LandingPage_moreInfo__Xksna']")
     public WebElement button_moreAboutHypnote;
 
+    @FindBy (xpath = "//a[@class='LandingPage_moreInfo__Xksna']")
+    public WebElement text_hPMS_EHR;
+
+    @FindBy (xpath = "//h3[@class='LandingPage_link__uEre3']")
+    public List<WebElement> links_allHeadingsAbout_hPMS;
+
+    @FindBy (xpath = "//h2[contains(text(),'Testimonials')]")
+    public WebElement text_testimonials;
+
+    @FindBy (xpath = "//a[@class='LandingPage_colorBlack__8KCDi']")
+    public List<WebElement> text_testimonialsPerson;
+
+    @FindBy (xpath = "(//ol[@class='flickity-page-dots'])[1]/li")
+    public List<WebElement> button_dots;
+
+    @FindBy (css = "[aria-label='Previous']")
+    public WebElement button_previous;
+
+    @FindBy (css = "[aria-label='Next']")
+    public WebElement button_next;
+
 
 
 

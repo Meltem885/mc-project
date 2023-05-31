@@ -16,6 +16,7 @@ import utilities.JSUtils;
 import static utilities.BrowserUtilities.clickWithJS;
 import static utilities.BrowserUtilities.waitFor;
 
+
 public class US_001_StepDef_AO {
 
     HomePage_AO homePage_ao = new HomePage_AO();
@@ -244,7 +245,6 @@ public class US_001_StepDef_AO {
             Assert.assertTrue(homePage_ao.text_allHeadersInAboutUs.get(i).isDisplayed());
             System.out.println(homePage_ao.text_allHeadersInAboutUs.get(i).getText());
 
-
         }
 
     }
@@ -257,11 +257,9 @@ public class US_001_StepDef_AO {
         Driver.getDriver().switchTo().frame(homePage_ao.iframe);
         waitFor(2);
         System.out.println("homePage_ao.text_hypnotesPrMnSf = " + homePage_ao.text_hypnotesPrMnSf.getText());
-        // BrowserUtilities.scrollToElement(homePage_ao.button_aboutHypnotesYouTube);
 
         Assert.assertTrue(homePage_ao.button_aboutHypnotesYouTube.isDisplayed());
         Assert.assertTrue(homePage_ao.button_aboutHypnotesYouTube.isEnabled());
-
 
     }
 
@@ -270,10 +268,10 @@ public class US_001_StepDef_AO {
 
         waitFor(3);
         homePage_ao.button_youTubePlay.click();
-        BrowserUtilities.waitFor(10);
+        waitFor(10);
         actions.sendKeys(Keys.SPACE).perform();
-    }
 
+    }
 
     @Then("AO verifies More about Hypnotes section is visible")
     public void aoVerifiesMoreAboutHypnotesSectionIsVisible() {
