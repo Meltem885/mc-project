@@ -76,6 +76,12 @@ public class HomePage_AO extends BasePage {
     @FindBy (css = "[aria-label='Next']")
     public WebElement button_next;
 
+    @FindBy (xpath = " //h2[contains(text(),'Everything you need')] ")
+    public WebElement text_everythingWrapped;
+
+    @FindBy (css = ".LandingPage_question__Iup_j")
+    public List<WebElement> text_subTitle;
+
 
 
 

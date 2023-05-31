@@ -93,4 +93,24 @@ public class US_008_StepDef_AO {
         Assert.assertFalse("Sag ok calismamasi lazim", homePage_ao.button_next.isEnabled());
 
     }
+
+    @Then("AO verifies Everything you need for your practice management wrapped up in one solution is visible")
+    public void aoVerifiesEverythingYouNeedForYourPracticeManagementWrappedUpInOneSolutionIsVisible() {
+
+        waitFor(3);
+        BrowserUtilities.scrollToElement(homePage_ao.text_everythingWrapped);
+        Assert.assertTrue(homePage_ao.text_everythingWrapped.isDisplayed());
+    }
+
+    @Then("AO verifies Subtitles below this title is visible")
+    public void aoVerifiesSubtitlesBelowThisTitleIsVisible() {
+        waitFor(3);
+
+        for (int i = 0; i < homePage_ao.text_subTitle.size(); i++) {
+            Assert.assertTrue(homePage_ao.text_subTitle.get(i).isDisplayed());
+
+            System.out.println(homePage_ao.text_subTitle.get(i).getText());
+
+        }
+    }
 }

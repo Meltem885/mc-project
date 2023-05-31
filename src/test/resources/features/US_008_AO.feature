@@ -32,6 +32,11 @@ Feature: US_008 As a user, I should be able to see various titles and perform va
     Then AO verifies the accounts of the relevant persons are visible
     Then AO verifies < > buttons are visible and clickable
 
+    Scenario: US_010_TC_001 As a user, some titles should be visible.
+
+  Then AO verifies Everything you need for your practice management wrapped up in one solution is visible
+  Then AO verifies Subtitles below this title is visible
+
 
 
 
