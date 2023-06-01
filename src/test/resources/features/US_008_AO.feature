@@ -65,45 +65,21 @@ Feature: US_008 As a user, I should be able to see various titles and perform va
       | https://test.hypnotes.net/terms-of-service                            |
 
 
+  Scenario: US_012_TC_001 As a user, I should be able to select Client on the homepage.
+
+    Then AO verifies Sign Up button is clickable
+    When AO clicks on Sign Up button
+    Then AO verifies Client and Therapist options should appear after clicking on Sign Up button
+    Then AO verifies The client is clickable
+    When AO clicks on the Client button
+    When AO verifies the relevant page url is "https://test.hypnotes.net/register/client" after clicking on the Client button
+    Then AO verifies Therapist button is clickable
+    Then AO verifies the relevant page url is "https://test.hypnotes.net/register" after clicking on the Therapist button
 
 
 
-#    Footer section of homepage
-#    All headings should be seen in the relevant section.
-#    Headings in the relevant section should be clickable and related pages should open.
-#    Related pages should not contain typographical and logical mistakes.
-
- #  Explore
-#    Blog
-#    Pricing
-#    How It Works ?
-
-#   Features
-#  Appointment Scheduling
-#  Secure Video Conferencing
-#  ESign Documents Online
-#  Billing & Invoicing
-#  Bio-Feedback
-#  Speech To Text - Voice Note
-#  Handwriting To Text - OCR
-#  Customize Service
-#  Get Organized
-#  Security-HIPAA Compliance
-#  Website Builder For Therapists
-
-#  Company
-#  About Us
-#  Contact Us
-#  Privacy Policy
-#  Terms Of Service
-#  Address should be seen
-#  Phone number should be seen
-#  Phone number must be clickable
 
 
-#  Facebook, LinkedIn, Twitter, Instagram buttons should be seen
-#  Facebook, LinkedIn, Twitter, Instagram buttons should be clickable
-#  After clicking the Facebook, LinkedIn, Twitter, Instagram buttons, the company-related pages should be visible.
 
 
 

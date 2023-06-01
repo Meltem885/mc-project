@@ -85,6 +85,18 @@ public class HomePage_AO extends BasePage {
     @FindBy (css = ".BaseFooter_row1__suf5Q>div>ul>li")
     public List<WebElement> link_footerAllHeadings;
 
+    @FindBy (xpath = "//a[contains(text(),'Sign Up')]")
+    public WebElement button_signUp;
+
+    @FindBy (xpath = "//h3[contains(text(),'Register As a Therapist')]")
+    public WebElement link_registerAsTherapist;
+
+    @FindBy (xpath = "//a[contains(text(),'Client')]")
+    public WebElement link_iAmClient;
+
+    @FindBy (xpath = "//a[contains(text(),'Therapist')]")
+    public WebElement link_iAmTherapist;
+
 
 
 

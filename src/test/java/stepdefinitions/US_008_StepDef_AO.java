@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.HomePage_AO;
 import utilities.BrowserUtilities;
@@ -152,6 +153,59 @@ public class US_008_StepDef_AO {
             JSUtils.scrollDownByJS();
 
         }
+
+    }
+
+    @Then("AO verifies Sign Up button is clickable")
+    public void aoVerifiesSignUpButtonIsClickable() {
+        waitFor(2);
+        Assert.assertTrue(homePage_ao.button_signUp.isEnabled());
+    }
+
+    @When("AO clicks on Sign Up button")
+    public void aoClicksOnSignUpButton() {
+        homePage_ao.button_signUp.click();
+    }
+
+    @Then("AO verifies Client and Therapist options should appear after clicking on Sign Up button")
+    public void aoVerifiesClientAndTherapistOptionsShouldAppearAfterClickingOnSignUpButton() {
+waitFor(2);
+Assert.assertTrue(homePage_ao.link_registerAsTherapist.isDisplayed());
+    }
+
+    @Then("AO verifies The client is clickable")
+    public void aoVerifiesTheClientIsClickable() {
+        waitFor(2);
+        Assert.assertTrue(homePage_ao.link_iAmClient.isEnabled());
+    }
+
+    @When("AO clicks on the Client button")
+    public void aoClicksOnTheClientButton() {
+        waitFor(1);
+        homePage_ao.link_iAmClient.click();
+    }
+
+    @When("AO verifies the relevant page url is {string} after clicking on the Client button")
+    public void aoVerifiesTheRelevantPageUrlIsAfterClickingOnTheClientButton(String expectedUrl) {
+        waitFor(2);
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+
+        Assert.assertEquals(expectedUrl,actualUrl);
+    }
+
+    @Then("AO verifies Therapist button is clickable")
+    public void aoVerifiesTherapistButtonIsClickable() {
+        Assert.assertTrue(homePage_ao.link_iAmTherapist.isEnabled());
+
+    }
+
+    @Then("AO verifies the relevant page url is {string} after clicking on the Therapist button")
+    public void aoVerifiesTheRelevantPageUrlIsAfterClickingOnTheTherapistButton(String expectedUrl) {
+        homePage_ao.link_iAmTherapist.click();
+        waitFor(2);
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+
+        Assert.assertEquals(expectedUrl,actualUrl);
 
     }
 }
