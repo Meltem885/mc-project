@@ -82,6 +82,9 @@ public class HomePage_AO extends BasePage {
     @FindBy (css = ".LandingPage_question__Iup_j")
     public List<WebElement> text_subTitle;
 
+    @FindBy (css = ".BaseFooter_row1__suf5Q>div>ul>li")
+    public List<WebElement> link_footerAllHeadings;
+
 
 
 

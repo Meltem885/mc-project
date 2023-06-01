@@ -113,4 +113,45 @@ public class US_008_StepDef_AO {
 
         }
     }
+
+    @Then("AO verifies all headings are visible and clickable on the footer")
+    public void aoVerifiesAllHeadingsAreVisibleAndClickableOnTheFooter() {
+        waitFor(2);
+        BrowserUtilities.scrollToElement(homePage_ao.link_footerAllHeadings.get(0));
+        for (int i = 0; i < homePage_ao.link_footerAllHeadings.size(); i++) {
+
+            Assert.assertTrue(homePage_ao.link_footerAllHeadings.get(i).isDisplayed());
+            Assert.assertTrue(homePage_ao.link_footerAllHeadings.get(i).isEnabled());
+
+            System.out.println("heading " + (i + 1) + " = " + homePage_ao.link_footerAllHeadings.get(i).getText());
+        }
+    }
+
+    @Then("AO clicks on each headings on the footer and verifies related pages have the following URLs")
+    public void aoClicksOnEachHeadingsOnTheFooterAndVerifiesRelatedPagesHaveTheFollowingURLs(DataTable dataTable) {
+        waitFor(1);
+        JSUtils.scrollDownByJS();
+
+        for (int i = 0; i < homePage_ao.link_footerAllHeadings.size() - 2; i++) {
+            waitFor(1);
+
+            homePage_ao.link_footerAllHeadings.get(i).click();
+            waitFor(1);
+
+            System.out.println("URL " + (i + 1) + " = " + Driver.getDriver().getCurrentUrl());
+            // System.out.println("TITLE "+(i+1)+" = " +Driver.getDriver().getTitle());
+
+            String expectedUrl = dataTable.column(0).get(i);
+            String actualUrl = Driver.getDriver().getCurrentUrl();
+
+            Assert.assertEquals("Expected and actual URLs are not same", expectedUrl, actualUrl);
+
+            Driver.getDriver().navigate().back();
+            waitFor(1);
+
+            JSUtils.scrollDownByJS();
+
+        }
+
+    }
 }
