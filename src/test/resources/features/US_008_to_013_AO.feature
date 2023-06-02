@@ -1,7 +1,7 @@
 @smoke
 
 
-Feature: US_008 As a user, I should be able to see various titles and perform various controls on the homepage.
+Feature: US_008_to_013 As a user, I should be able to see various titles and perform various controls on the homepage.
 
   Background:
     Given AO goes to home page
@@ -76,10 +76,12 @@ Feature: US_008 As a user, I should be able to see various titles and perform va
     Then AO verifies Therapist button is clickable
     Then AO verifies the relevant page url is "https://test.hypnotes.net/register" after clicking on the Therapist button
 
+Scenario: US_013_TC_001 As a user, I should be able to register with my Google, Facebook and Linkedin account
 
 
-
-
+#Registration must be created with Sign in with Google and confirmation must be sent to the e-mail.
+#Registration must be created with Facebook and confirmation must be sent to the e-mail.
+#Registration must be created with LinkedIn and confirmation must be sent to the e-mail.
 
 
 

@@ -208,4 +208,8 @@ Assert.assertTrue(homePage_ao.link_registerAsTherapist.isDisplayed());
         Assert.assertEquals(expectedUrl,actualUrl);
 
     }
+
+    @Then("AO verifies Name, Surname, Email, Password fields are visible")
+    public void aoVerifiesNameSurnameEmailPasswordFieldsAreVisible() {
+    }
 }
