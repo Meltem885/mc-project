@@ -164,6 +164,8 @@ public class US_008_StepDef_AO {
 
     @When("AO clicks on Sign Up button")
     public void aoClicksOnSignUpButton() {
+        // BrowserUtilities.waitForPageToLoad(5);
+        waitFor(3);
         homePage_ao.button_signUp.click();
     }
 
