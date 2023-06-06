@@ -16,10 +16,6 @@ Feature: US_015 As a user I should be able to verify after entering valid inform
 
 
 
-
-
-
-
 #Must be a valid full name containing only letters
 #Must be a valid full last name containing only letters
 #User must enter a valid email with the extensions "@", ".<something>"
