@@ -155,18 +155,29 @@ public class US_001_StepDef_AO {
         }
     }
 
-    @Then("AO clicks on Facebook and verifies the company-related pages is visible")
-    public void aoClicksOnFacebookAndVerifiesTheCompanyRelatedPagesIsVisible() {
-        socialIconsAssertion(0, "facebook");
+    public void socialIconsAssertion(int smindex,String smname) {
+
+        homePage_ao.button_socialIcons.get(smindex).click();
+        waitFor(2);
+        BrowserUtilities.switchToWindowWithIndex(1);
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(smname));
+       System.out.println(Driver.getDriver().getTitle());
+
+        BrowserUtilities.switchToWindowWithIndex(0);
+        waitFor(2);
     }
 
-    @Then("AO clicks on LinkedIn and verifies the company-related pages is visible")
-    public void aoClicksOnLinkedInAndVerifiesTheCompanyRelatedPagesIsVisible() {
-        socialIconsAssertion(3, "linkedin");
+    @Then("AO clicks on Facebook and verifies the company-related pages is visible")
+    public void aoClicksOnFacebookAndVerifiesTheCompanyRelatedPagesIsVisible() {
+
+        socialIconsAssertion(0,"facebook");
     }
+
+
 
     @Then("AO clicks on Twitter and verifies the company-related pages is visible")
     public void aoClicksOnTwitterAndVerifiesTheCompanyRelatedPagesIsVisible() {
+
         socialIconsAssertion(1, "twitter");
     }
 
@@ -175,17 +186,10 @@ public class US_001_StepDef_AO {
         socialIconsAssertion(2, "instagram");
     }
 
-    public void socialIconsAssertion(int socialIconIndex, String socialIconName) {
+    @Then("AO clicks on LinkedIn and verifies the company-related pages is visible")
+    public void aoClicksOnLinkedInAndVerifiesTheCompanyRelatedPagesIsVisible() {
 
-        homePage_ao.button_socialIcons.get(socialIconIndex).click();
-        waitFor(2);
-        BrowserUtilities.switchToWindowWithIndex(1);
-        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(socialIconName));
-        System.out.println(Driver.getDriver().getCurrentUrl());
-        System.out.println(Driver.getDriver().getTitle());
-
-        BrowserUtilities.switchToWindowWithIndex(0);
-        waitFor(2);
+        socialIconsAssertion(3,"linkedin");
     }
 
 
