@@ -7,8 +7,20 @@ import java.util.List;
 
 public class HomePage_SK extends BasePage{
 
-    @FindBy (css = ".ant-col.ant-col-order-6.style_footerSocialMediaIconContainer__6P4ks.ant-col-xs-24.css-15rg2km > span")
+    @FindBy (css = "img[alt='logo']")
     public List<WebElement> link_socialIcons;
+
+    @FindBy (css = "img[href='https://www.facebook.com/hypnotesinc']")
+    public WebElement facebook_icon;
+
+    @FindBy (css = "img[href='https://www.linkedin.com/company/hypnotes/']")
+    public WebElement linkedin_icon;
+
+    @FindBy (css = "img[href='https://twitter.com/HypnotesInc']")
+    public WebElement twitter_icon;
+
+    @FindBy (css = "img[href='https://www.instagram.com/hypnotesinc']")
+    public WebElement instagram_icon;
      @FindBy (xpath = "//div[.='Features']")
     public WebElement title_features;
 
