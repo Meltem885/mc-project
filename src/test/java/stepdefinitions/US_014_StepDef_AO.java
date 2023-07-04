@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -50,6 +51,7 @@ public class US_014_StepDef_AO {
     public void aoEntersInTheEmailField(String email) {
 
         registerPage.textBox_email.sendKeys(email);
+
     }
 
     @When("AO enters {string} in the password field")

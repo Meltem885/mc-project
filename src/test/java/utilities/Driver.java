@@ -27,10 +27,10 @@ public class Driver {
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                     driver.manage().window().maximize();
-                    ChromeOptions chromeOptions = new ChromeOptions(); chromeOptions.addArguments("use-fake-ui-for-media-stream");
-                    chromeOptions.addArguments("--disable-gpu");
-                    chromeOptions.addArguments("--window-size=1920,1080");
-                    chromeOptions.addArguments("--remote-allow-origins=*");
+//                    ChromeOptions chromeOptions = new ChromeOptions(); chromeOptions.addArguments("use-fake-ui-for-media-stream");
+//                    chromeOptions.addArguments("--disable-gpu");
+//                    chromeOptions.addArguments("--window-size=1920,1080");
+//                    chromeOptions.addArguments("--remote-allow-origins=*");
                     break;
                 case "chrome-headless":
                     WebDriverManager.chromedriver().setup();

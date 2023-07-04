@@ -9,7 +9,7 @@ Feature: US_001 As a user I should be able to access the home page.
 
    // Given AO goes to home page
     Then AO verifies the url
-
+@US_002
   Scenario: US_002_TC001 Blog, Services, Solutions, Pricing, Contact us, About us, ?,
   Login, Sign Up headings should be visible and clickable.
 

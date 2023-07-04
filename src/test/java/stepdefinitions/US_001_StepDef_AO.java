@@ -72,6 +72,7 @@ public class US_001_StepDef_AO {
         waitFor(3);
         Assert.assertTrue(homePage_ao.button_tryItForFree.isDisplayed());
         Assert.assertTrue(homePage_ao.button_tryItForFree.isEnabled());
+
     }
 
     @Then("AO verifies Sign In headers is visible and clickable")
@@ -164,7 +165,7 @@ public class US_001_StepDef_AO {
         homePage_ao.button_socialIcons.get(socialIconIndex).click();
         waitFor(2);
         BrowserUtilities.switchToWindowWithIndex(1);
-
+BrowserUtilities.waitFor(3);
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(socialIconName));
 
         System.out.println(Driver.getDriver().getCurrentUrl());
@@ -194,7 +195,7 @@ public class US_001_StepDef_AO {
 
     @Then("AO clicks on LinkedIn and verifies the company-related pages is visible")
     public void aoClicksOnLinkedInAndVerifiesTheCompanyRelatedPagesIsVisible() {
-
+BrowserUtilities.waitFor(2);
         compareSocialIcons(3, "linkedin");
     }
 
