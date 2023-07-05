@@ -10,6 +10,8 @@ Feature:
     And user enters password
     And user reenters password
     And user clicks continue button
+#  selma
+
 #
 #    Scenario Outline:
 #      Given user navigates to "https://www.amazon.co.uk/"

@@ -24,4 +24,6 @@ public class AmazonHomePage extends BasePage{
 
     @FindBy(css = "#sp-cc-accept")
     public WebElement acceptCookies;
+
+    //selma
 }
