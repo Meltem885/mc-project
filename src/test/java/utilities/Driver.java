@@ -27,6 +27,7 @@ public class Driver {
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                     driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 //                    ChromeOptions chromeOptions = new ChromeOptions(); chromeOptions.addArguments("use-fake-ui-for-media-stream");
 //                    chromeOptions.addArguments("--disable-gpu");
 //                    chromeOptions.addArguments("--window-size=1920,1080");
@@ -36,16 +37,19 @@ public class Driver {
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
                     driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
                     driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
                     break;
                 case "firefox-headless":
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver(new FirefoxOptions().setHeadless(true));
                     driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
                     break;
                 case "ie":
                     if (!System.getProperty("os.name").toLowerCase().contains("windows"))
@@ -53,6 +57,7 @@ public class Driver {
                     WebDriverManager.iedriver().setup();
                     driver = new InternetExplorerDriver();
                     driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
                     break;
 
                 case "edge":
@@ -61,6 +66,7 @@ public class Driver {
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
                     break;
 
                 case "safari":
@@ -69,6 +75,7 @@ public class Driver {
                     WebDriverManager.getInstance(SafariDriver.class).setup();
                     driver = new SafariDriver();
                     driver.manage().window().maximize();
+                    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
                     break;
             }
 
@@ -130,12 +137,14 @@ public class Driver {
 //        return driver;
    // }
 
-    public static void closeDriver(){
+  /*  public static void closeDriver(){
         // Eğer driver nesnesi NULL değilse, yani hafızada varsa
         if (driver != null){
             driver.quit();  // driver'ı kapat
             driver = null;  // driver'ı hafızadan temizle.
         }
     }
+
+   */
 
 }

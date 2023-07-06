@@ -4,7 +4,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
@@ -72,7 +71,6 @@ public class US_001_StepDef_AO {
         waitFor(3);
         Assert.assertTrue(homePage_ao.button_tryItForFree.isDisplayed());
         Assert.assertTrue(homePage_ao.button_tryItForFree.isEnabled());
-
     }
 
     @Then("AO verifies Sign In headers is visible and clickable")
@@ -141,17 +139,14 @@ public class US_001_StepDef_AO {
 
     }
 
+
     @Then("AO verifies Facebook, LinkedIn, Twitter, Instagram icons is visible and clickable.")
     public void aoVerifiesFacebookLinkedInTwitterInstagramIconsIsVisibleAndClickable() {
         // JSUtils.scrollIntoViewJS(homePage_ao.button_socialIcons.get(1));
-        // BrowserUtilities.waitForVisibility(By.xpath("//div[@class='BaseFooter_socialLinks__b2Eyv']/a"),5);
         waitFor(2);
-        //BrowserUtilities.waitForPageToLoad(15);
         JSUtils.scrollDownByJS();
-        // waitFor(2);
-        //BrowserUtilities.waitForVisibility(By.xpath("//div[@class='BaseFooter_socialLinks__b2Eyv']/a"),5);
+        waitFor(2);
 
-        BrowserUtilities.waitForVisibility(homePage_ao.button_socialIcons.get(0), 5);
         for (int i = 0; i < homePage_ao.button_socialIcons.size(); i++) {
 
             Assert.assertTrue(homePage_ao.button_socialIcons.get(i).isDisplayed());
@@ -160,16 +155,13 @@ public class US_001_StepDef_AO {
         }
     }
 
-    public void compareSocialIcons(int socialIconIndex, String socialIconName) {
+    public void socialIconsAssertion(int smindex,String smname) {
 
-        homePage_ao.button_socialIcons.get(socialIconIndex).click();
+        homePage_ao.button_socialIcons.get(smindex).click();
         waitFor(2);
         BrowserUtilities.switchToWindowWithIndex(1);
-BrowserUtilities.waitFor(3);
-        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(socialIconName));
-
-        System.out.println(Driver.getDriver().getCurrentUrl());
-        System.out.println(Driver.getDriver().getTitle());
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(smname));
+       System.out.println(Driver.getDriver().getTitle());
 
         BrowserUtilities.switchToWindowWithIndex(0);
         waitFor(2);
@@ -178,25 +170,26 @@ BrowserUtilities.waitFor(3);
     @Then("AO clicks on Facebook and verifies the company-related pages is visible")
     public void aoClicksOnFacebookAndVerifiesTheCompanyRelatedPagesIsVisible() {
 
-        compareSocialIcons(0, "facebook");
-
+        socialIconsAssertion(0,"facebook");
     }
+
+
 
     @Then("AO clicks on Twitter and verifies the company-related pages is visible")
     public void aoClicksOnTwitterAndVerifiesTheCompanyRelatedPagesIsVisible() {
 
-        compareSocialIcons(1, "twitter");
+        socialIconsAssertion(1, "twitter");
     }
 
     @Then("AO clicks on Instagram and verifies the company-related pages is visible")
     public void aoClicksOnInstagramAndVerifiesTheCompanyRelatedPagesIsVisible() {
-        compareSocialIcons(2, "instagram");
+        socialIconsAssertion(2, "instagram");
     }
 
     @Then("AO clicks on LinkedIn and verifies the company-related pages is visible")
     public void aoClicksOnLinkedInAndVerifiesTheCompanyRelatedPagesIsVisible() {
-BrowserUtilities.waitFor(2);
-        compareSocialIcons(3, "linkedin");
+
+        socialIconsAssertion(3,"linkedin");
     }
 
 

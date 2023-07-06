@@ -245,6 +245,16 @@ public class BrowserUtilities {
 
     }
 
+    /**
+     *  checks that an element is present on the DOM of a page. This does not
+     *    * necessarily mean that the element is visible.
+     * @param by
+     * @param time
+     */
+    public static void waitForPresenceOfElement(By by,Duration time) {
+        new WebDriverWait(Driver.getDriver(), time).until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
     public static void selectAnItemFromDropdown(WebElement item, String selectableItem) {
 
         waitFor(5);
