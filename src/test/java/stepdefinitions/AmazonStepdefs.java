@@ -15,28 +15,34 @@ public class AmazonStepdefs {
     Actions actions = new Actions(Driver.getDriver());
 
 
+
     @Given("user navigates to {string}")
     public void userNavigatesTo(String url) {
         Driver.getDriver().get(url);
 
+
         BrowserUtilities.waitFor(2);
         //ahp.acceptCookies.click();
         JSUtils.clickElementByJS(ahp.acceptCookies);
+        System.out.println("1");
 
     }
 
     @When("user hover-overs on the Hello, sign in module")
     public void userHoverOversOnTheHelloSignInModule() {
-        BrowserUtilities.waitFor(2);
-        actions.moveToElement(ahp.helloSignIn_Mod);
+       // BrowserUtilities.waitFor(2);
+      //  actions.moveToElement(ahp.helloSignIn_Mod);
+        BrowserUtilities.scrollToElement(ahp.helloSignIn_Mod);
+        System.out.println("2");
 //merhaba
 
     }
 
     @And("user sees Start here. link and clicks on it")
     public void userSeesStartHereLinkAndClicksOnIt() {
-        BrowserUtilities.waitFor(2);
+        BrowserUtilities.waitFor(1);
         ahp.startHere_link.click();
+        System.out.println("3");
     }
 
     @And("user enters First and last name")
