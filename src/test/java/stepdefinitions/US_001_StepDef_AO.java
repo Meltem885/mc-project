@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import pages.BasePage;
 import pages.HomePage_AO;
 import utilities.BrowserUtilities;
 import utilities.ConfigurationReader;
@@ -20,6 +21,7 @@ import static utilities.BrowserUtilities.waitFor;
 public class US_001_StepDef_AO {
 
     HomePage_AO homePage_ao = new HomePage_AO();
+
     Actions actions = new Actions(Driver.getDriver());
 
 
